@@ -55,3 +55,13 @@
 sudo useradd -m -G root -s /bin/bash user_root
 id -Gn user_root
 << user_root root
+-------------------------------------------------------------
+5. * Создать группу developer и несколько пользователей, входящих в нее. 
+    sudo groupadd developer
+    sudo useradd -m -G developer -s /bin/bash user1
+    sudo useradd -m -G developer -s /bin/bash user2
+Создать директорию для совместной работы. 
+    mkdir developer_dir
+    sudo chgrp developer developer_dir
+Сделать так, чтобы созданные одними пользователями файлы могли изменять другие пользователи этой группы.
+    chmod u=rwx,g=rx,o=rx developer_dir
